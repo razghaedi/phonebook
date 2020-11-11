@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PhoneBook.Domain.Core.People.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>List People</h3>
+@if (Model != null || Model.Count() > 0)
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    FirstName
+                </th>
+                <th>
+                    LastName
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Detail
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Email</td>
+                    <td><a asp-controller="People" asp-action="Detail" asp-route-id="@item.Id">Detail</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
